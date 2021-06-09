@@ -10,10 +10,10 @@ import wikipedia
 # import tensorflow as tf
 # from calculator.calculator import calculator
 
-engine = pyttsx3.init('sapi5')
-commandss = engine.getProperty('voices')
-print(commandss[1].id)
-engine.setProperty('commands', commandss[1].id)
+# engine = pyttsx3.init('sapi5')
+# commandss = engine.getProperty('voices')
+# print(commandss[1].id)
+# engine.setProperty('commands', commandss[1].id)
 
 def speak(audio):
     engine.say(audio)

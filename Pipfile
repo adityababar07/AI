@@ -4,6 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+requests = "*"
+smtplib = "*"
+webbrowser = "*"
+pyttsx3 = "*"
+wikipedia = "*"
+SpeechRecognition = "*"
 
 [dev-packages]
 
