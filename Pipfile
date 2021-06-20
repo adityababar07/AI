@@ -5,13 +5,10 @@ name = "pypi"
 
 [packages]
 requests = "*"
-smtplib = "*"
-webbrowser = "*"
-pyttsx3 = "*"
-wikipedia = "*"
-SpeechRecognition = "*"
+selenium = "*"
 
 [dev-packages]
+pylint = "*"
 
 [requires]
 python_version = "3.8"
