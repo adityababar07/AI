@@ -1,8 +1,11 @@
-# speechrecognition
+SpeechRecognition
 requests
-# pyttsx3
-# wikipedia
-# comtypes
+pyttsx3
+psycopg2.binary
+wikipedia
+autopep8
 selenium
 pylint
 instaloader
+pyaudio
+text_to_speech

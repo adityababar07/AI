@@ -1,15 +1,12 @@
-import webbrowser
+import time
 from selenium import webdriver
 
-option = webdriver.firefox.options.Options()
-option.add_argument('--disable-notifications')
-option.add_argument("start-maximized")
-option.add_argument("--disable-extensions")
-# option.add_experimental_option("prefs", { 
-#     "profile.default_content_setting_values.notifications": 0 
-# })
+options = webdriver.ChromeOptions()
+prefs = {"profile.default_content_setting_values.notifications" : 1}
+options.add_experimental_option("prefs",prefs)
 
-browser = webdriver.Firefox()
+
+browser = webdriver.Chrome(executable_path='/media/hacker07/Hacker07/code/AI/scraping/chromedriver', options=options)
 browser.get('https://www.instagram.com/direct/inbox/')
 
 def wait(time):
@@ -27,9 +24,11 @@ touch = webdriver.common.touch_actions.TouchActions
 not_now = browser.find_element_by_class_name('cmbtv')
 not_now.click()
 
-wait(10)
-not_now = browser.find_element_by_class_name('aOOlW')
-not_now.click()
+time.sleep(20)
+browser.quit()
+# wait(10)
+# not_now = browser.find_element_by_class_name('aOOlW')
+# not_now.click()
 
 
 # webbrowser.open('https://www.instagram.com/direct/inbox/')
