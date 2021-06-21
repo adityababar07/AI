@@ -1,8 +1,12 @@
 import pyaudio
 import wave
-import speech_recognition as sr
 import psycopg2
 import pyttsx3
+import wikipedia
+import multiprocessing
+import scraping.instagram as insta
+import scraping.messenger as mess
+import wiki
 
 connection = psycopg2.connect(
     database="ai",
@@ -12,42 +16,28 @@ connection = psycopg2.connect(
     port=5432
 )
 
-speech = sr.Recognizer()
-mic = sr.Microphone(device_index=0)
 
 def engine(speak):
     Engine = pyttsx3.init()
+    Engine.setProperty('rate', 125)
+    Engine.setProperty('volume',2.0) 
     Engine.say(speak)
     Engine.runAndWait()
 
-def Mic(mic):
-    try:
-        with mic as source:
-            print("listening..... ")
-            speech.pause_threshold = 1
-            audio = speech.listen(source, timeout=2, phrase_time_limit=3)
-            command = speech.recognize_google(audio, language='en-in')
-            command = command.lower()
-        return command
-    except:
-        return "Sorry, could'nt recognize ..."
-
-
 def main():
     while True:
-        command = Mic(mic)
-        print(command)
-        engine(command)
-        
-        if command == "exit":
+        # command = Mic(mic)
+        command = input("command :\t")
+            
+        if "bye" in command:
             engine("goodbye, freind")
             exit()
-        elif command == "instagram":
-            from scraping import instagram
-        elif command == "messenger":
-            from scraping import messenger
-        
-
+        elif "instagram" in command:
+            insta.instagram()
+        elif "messenger" in command:
+            mess.messenger()
+        elif "wikipedia" in command:
+            wiki.Wikipedia(command, engine)
 
 if __name__ == "__main__":
     main()
