@@ -16,9 +16,10 @@ SpeechRecognition = "*"
 text-to-speech = "*"
 PyAudio = "*"
 speech = "*"
-"psycopg2.binary" = "*"
 sounddevice = "*"
 scipy = "*"
+Pillow = "*"
+opencv-python = "*"
 
 [dev-packages]
 pylint = "*"

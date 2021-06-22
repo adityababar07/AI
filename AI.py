@@ -24,20 +24,25 @@ def engine(speak):
     Engine.say(speak)
     Engine.runAndWait()
 
+def Process(task):
+    branch = multiprocessing.Process(target=task)
+    branch.start()
+    branch.join()    
+
 def main():
     while True:
         # command = Mic(mic)
         command = input("command :\t")
             
         if "bye" in command:
-            engine("goodbye, freind")
+            Process(engine("goodbye, freind"))
             exit()
         elif "instagram" in command:
-            insta.instagram()
+            Process(insta.instagram())
         elif "messenger" in command:
-            mess.messenger()
+            Process(mess.messenger())
         elif "wikipedia" in command:
-            wiki.Wikipedia(command, engine)
+            Process(wiki.Wikipedia(command, engine))
 
 if __name__ == "__main__":
-    main()
+    Process(main())

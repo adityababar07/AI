@@ -1,4 +1,4 @@
-SpeechRecognition
+# SpeechRecognition
 requests
 pyttsx3
 psycopg2.binary
@@ -6,6 +6,8 @@ wikipedia
 autopep8
 selenium
 pylint
-instaloader
+# instaloader
 pyaudio
-text_to_speech
+# text_to_speech
+pillow
+opencv-python

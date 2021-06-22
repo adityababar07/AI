@@ -1,5 +1,7 @@
+__pycache__
 .vscode
 junk
 geckodriver.log
 geckodriver
 chromedriver
+selenium
