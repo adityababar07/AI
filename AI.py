@@ -7,6 +7,7 @@ import multiprocessing
 import scraping.instagram as insta
 import scraping.messenger as mess
 import wiki
+import webbrowser
 
 connection = psycopg2.connect(
     database="ai",
@@ -43,6 +44,9 @@ def main():
             Process(mess.messenger())
         elif "wikipedia" in command:
             Process(wiki.Wikipedia(command, engine))
+        elif "youtube" in command:
+            webbrowser.open_new_tab("https://www.youtube.com/")
+            
 
 if __name__ == "__main__":
     Process(main())

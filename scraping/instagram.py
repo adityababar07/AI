@@ -64,9 +64,18 @@ def instagram(engine):
     cv2.waitKey(delay=10000)
     cv2.destroyAllWindows()
 
-    choice = input("Do you want to send a message(t/f) :-\t")
-    if choice == "t":
+    choice = input("Do you want to send a message(y/n) :-\t")
+    if choice == "y":
         main("--start-maximized")
+        time = time.perf_counter()
+        for _ in range(3):
+            if time >= 300:
+                choice1 = input("Do you wanna countinue ? (y/n):-\t")
+                if choice1 == "y":
+                    continue
+                else:
+                    browser.quit()
+                    break
     else:
         engine("you have to make me more brilliant later")
 
