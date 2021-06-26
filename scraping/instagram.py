@@ -45,7 +45,7 @@ def instagram(engine):
 
         wait(2)
         try:
-            retry = browser.find_element_by_class_name('y3zKF')
+            retry = browser.find_element_by_class_name('JBIyP')
             retry.click()
         except NoSuchElementException:
             pass

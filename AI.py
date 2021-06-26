@@ -6,6 +6,7 @@ import wikipedia
 import multiprocessing
 import scraping.instagram as insta
 import scraping.messenger as mess
+import scraping.youtube as youtube
 import wiki
 import webbrowser
 
@@ -45,8 +46,7 @@ def main():
         elif "wikipedia" in command:
             Process(wiki.Wikipedia(command, engine))
         elif "youtube" in command:
-            webbrowser.open_new_tab("https://www.youtube.com/")
-            
+            Process(youtube.youtube())
 
 if __name__ == "__main__":
     Process(main())
