@@ -38,7 +38,7 @@ def main():
             Process(engine("goodbye, freind"))
             exit()
         elif "instagram" in command:
-            Process(insta.instagram())
+            Process(insta.instagram(engine))
         elif "messenger" in command:
             Process(mess.messenger())
         elif "wikipedia" in command:
