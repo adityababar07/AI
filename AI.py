@@ -42,11 +42,13 @@ def main():
         elif "instagram" in command:
             Process(insta.instagram(engine))
         elif "messenger" in command:
-            Process(mess.messenger())
+            Process(mess.messenger(engine))
         elif "wikipedia" in command:
             Process(wiki.Wikipedia(command, engine))
         elif "youtube" in command:
             Process(youtube.youtube())
+        elif "calculate" in command():
+            command = command.replace("calculate", "")
 
 if __name__ == "__main__":
     Process(main())

@@ -24,7 +24,7 @@ def instagram(engine):
             username = browser.find_element_by_name('username')
             username.send_keys('_t_i_n_k_e_r_b_o_y_')
             password = browser.find_element_by_name('password')
-            password.send_keys('nidhi@149489')
+            password.send_keys('Nidhi@149489')
             password.submit()
         except NoSuchElementException:
             pass

@@ -13,6 +13,6 @@ def youtube():
 
     time = time.perf_counter()
     while True:
-        if time >= 5000:
+        if time >= 3000:
             browser.quit()
             break
