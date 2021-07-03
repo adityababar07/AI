@@ -5,7 +5,8 @@ def Wikipedia(command, engine):
     query = command.replace("wikipedia", "")
     engine(f'searching wikipedia for {query}....')
     try:
-        result = wikipedia.summary(query, sentences=2)
+        sentences = int(input("Please enter the no. of sentenses you want on the particular topic :-\t"))
+        result = wikipedia.summary(query, sentences=sentences)
         engine("according to wikipedia")
         print(result)
         engine(result)
