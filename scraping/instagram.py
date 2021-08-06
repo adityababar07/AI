@@ -21,10 +21,13 @@ def instagram(engine):
 
         wait(10)
         try:
+            with open("/media/hacker07/Hacker07/code/AI/scraping/instagram_credentials.txt") as f:
+                credentials = f.readlines()
+                f.close()
             username = browser.find_element_by_name('username')
-            username.send_keys('_t_i_n_k_e_r_b_o_y_')
+            username.send_keys(credentials[0])
             password = browser.find_element_by_name('password')
-            password.send_keys('Nidhi@149489')
+            password.send_keys(credentials[1])
             password.submit()
         except NoSuchElementException:
             pass
@@ -84,7 +87,6 @@ def instagram(engine):
                     browser.quit()
                     break
     else:
-        engine("you have to make me more brilliant later")
+        print("you have to make me more brilliant later")
 
 
-# webbrowser.open('https://www.instagram.com/direct/inbox/')

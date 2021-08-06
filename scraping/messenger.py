@@ -3,7 +3,7 @@ def messenger(engine):
     from selenium.common.exceptions import NoSuchElementException
     import time
     from cv2 import cv2
-    
+
     def main(visibility):
         options = webdriver.ChromeOptions()
         prefs = {"profile.default_content_setting_values.notifications": 0}
@@ -11,31 +11,48 @@ def messenger(engine):
         options.add_argument("--disable-extensions")
         options.add_argument(visibility)
         options.add_argument("user-data-dir=selenium")
-    
+
         global browser
-        browser = webdriver.Chrome(executable_path="/media/hacker07/Hacker07/code/AI/scraping/chromedriver", options=options)
-        browser.get("https://www.messenger.com/t/106102277447234")
-    
-    
+        browser = webdriver.Chrome(
+            executable_path="/media/hacker07/Hacker07/code/AI/scraping/chromedriver", options=options)
+        browser.get("https://www.messenger.com/")
+
         wait(10)
         try:
+            with open("/media/hacker07/Hacker07/code/AI/scraping/messenger_credentials.txt") as f:
+                credentials = f.readlines()
+                f.close()
             email = browser.find_element_by_name("email")
-            email.send_keys('adityababar715@gmail.com')
-            password = browser.find_element_by_name("pass")
-            password.send_keys("nidhi@3.1428571429")
-            box = browser.find_element_by_xpath('/html/body/div/div/div/div[1]/div/div/div/div[1]/div/div[2]/div/div[7]/div[1]/div/div[2]/div[1]/div/form/div/div[2]/div/div/label[1]/input')
-            browser.execute_script("arguments[0].click();", box)
-            password.submit()
+            email.clear()
+            email.send_keys(credentials[0])
+            sleep(3)
+            password = browser.find_element_by_id("pass")
+            password.send_keys(credentials[1])
+            sleep(5)
+            box = browser.find_element_by_id('u_0_0_4m')
+            box.click()
+            sleep(5)
+            submit = browser.find_element_by_id("loginbutton")
+            submit.click()
         except NoSuchElementException:
+            pass
+
+        sleep(10)
+
+        try:
+            submit = browser.find_element_by_id("loginbutton")
+            submit.click()
+        except:
             pass
 
     def wait(time):
         browser.implicitly_wait(time)
-    
+
     def sleep(sec):
         time.sleep(sec)
 
     main('headless')
+    # main("--start-maximized")
     wait(60)
     sleep(5)
     image = "/home/hacker07/Desktop/messenger.png"
@@ -63,5 +80,4 @@ def messenger(engine):
                     browser.quit()
                     break
     else:
-        engine("you have to make me more brilliant later")
-    
+        print("you have to make me more brilliant later")
